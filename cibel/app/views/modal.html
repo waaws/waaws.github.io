@@ -1,0 +1,26 @@
+<div class="modal-window">
+  <div class="modal-header">
+    <div class="modal-nav">
+      <a class="modal-nav-button" ng-click="$parent.closeModal();">
+        <i class="icon-cross-modal"></i>
+      </a>
+    </div>
+    <h3 class="modal-title">{{ header }}</h3>
+    <div class="modal-nav">
+      <button class="modal-nav-button" ng-click="showPreviousTemplate();" ng-disabled="disablePrevious();">
+        <i class="icon-arrow-left"></i>
+      </button>
+      <button class="modal-nav-button" ng-click="showNextTemplate();" ng-disabled="disableNext();">
+        <i class="icon-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+  
+  <div class="modal-content-wrapper">
+    <div class="modal-content-header"></div>
+    <div class="modal-template-wrapper">
+      <div class="modal-template" modal-content template-type="{{ templateType }}" template-id="{{ templateId }}"></div>
+    </div>
+    <div class="modal-content-footer"></div>
+  </div>
+</div>

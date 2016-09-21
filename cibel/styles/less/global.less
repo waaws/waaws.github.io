@@ -1,0 +1,40 @@
+@import 'blocks.less';
+@import 'images.less';
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+.home-wrapper {
+  height: 100%;
+  padding-top: 64px;
+  position: relative;
+
+  @media @small-screen {
+    padding-top: 38px;
+    top: 0;
+  }
+}
+
+.loader {
+  background-image: @loader;
+  background-position: center;
+  background-size: contain;
+  margin: 48px auto;
+  height: 50px;
+  width: 50px;
+}
+
+.layout {
+  margin: 0 auto;
+  max-width: @viewport_width;
+  width: 100%;
+    @media @medium-screen {
+      width: 96%;
+    }
+}
+
+.initiallyHidden {
+  display: none;
+}

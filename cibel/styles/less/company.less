@@ -1,0 +1,57 @@
+@import 'images.less';
+
+.company {
+  background-image: @company-background;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 480px;
+  padding: 48px 72px;
+  width: 100%;
+
+  @media @small-screen {
+    padding: 24px;
+  }
+}
+
+.company-box-wrapper {
+  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.company-box {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 24px;
+  min-width: 360px;
+
+  @media @small-screen {
+    margin: 12px;
+  }
+
+  .title {
+    color: @c_white;
+    text-transform: uppercase;
+    text-align: left;
+    opacity: .8;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+.company-box-text-wrapper {
+  flex-grow: 1;
+}
+
+.company-box-text {
+
+  color: @c_white;
+  font-weight: 100;
+  letter-spacing: 1px;
+  opacity: .6;
+  margin: 12px 0;
+}

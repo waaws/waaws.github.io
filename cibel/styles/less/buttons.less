@@ -1,0 +1,145 @@
+@import 'blocks.less';
+@import 'colors.less';
+.main-button {
+  background-color: @c_blue_01;
+  border: 4px solid @c_white;
+  border-radius: 40px;
+  color: @c_white;
+  font-size: 21px;
+  line-height: 36px;
+  margin: 0;
+  padding: 24px;
+  white-space: nowrap;
+  font-weight: 700;
+  transition: 0.5s;
+
+  @media @small-screen {
+    font-size: 14px;
+    line-height: 14px;
+    padding: 12px 24px;
+  }
+
+  &:focus {
+    color: @c_white;
+  }
+
+  &:hover {
+    background-color: @c_green;
+    color: @c_white;
+  }
+
+  &[disabled=disabled], &:disabled {
+    background-color: @c_grays_03;
+
+    &:hover {
+      background-color: @c_grays_03;
+    }
+  }
+}
+
+.white-button {
+  background-color: @c_white;
+  border: 0;
+  border-radius: 40px;
+  color: @c_grays_04;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 12px;
+  padding: 12px 48px;
+  transition: 0.5s;
+
+  &:hover {
+    background-color: @c_red;
+    color: @c_white;
+  }
+
+  @media @small-screen {
+    font-size: 14px;
+    line-height: 14px;
+    margin: 6px;
+    padding: 12px 24px;
+  }
+}
+
+.liter-calculator-button {
+  &:extend(.main-button all);
+  align-items: center;
+  display: inline-flex;
+  padding: 12px 36px;
+
+  @media @medium-screen {
+    padding: 8px 24px;
+    font-size: 16px;
+  }
+  @media @small-screen {
+    flex-grow: 1;
+
+  }
+
+  .icon-calculadora, .icon-consejo {
+    font-size: 34px;
+    vertical-align: middle;
+
+    @media @small-screen {
+      font-size: 24px;
+    }
+  }
+}
+
+.liter-calculator-label {
+  margin-left: 12px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.calculate-button {
+  &:extend(.main-button all);
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 26px;
+  padding: 12px 48px;
+  text-transform: uppercase;
+  @media @medium-screen {
+    padding: 6px 20px;
+  }
+}
+
+.back-button {
+  &:extend(.main-button all);
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 26px;
+  padding: 12px 48px;
+  text-transform: uppercase;
+  @media @medium-screen {
+    padding: 6px 20px;
+  }
+
+  i {
+    margin-right: 24px;
+  }
+}
+
+.text-button {
+  border: 1px solid @c_white;
+  border-radius: 40px;
+  color: @c_white;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 12px 48px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  @media @medium-screen {
+    padding: 6px 20px;
+  }
+  @media @small-screen {
+    font-size: 12px;
+  }
+
+  &:hover {
+    background-color: @c_green;
+    color: @c_white;
+  }
+}

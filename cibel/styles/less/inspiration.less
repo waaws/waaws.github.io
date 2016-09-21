@@ -1,0 +1,120 @@
+@import 'images.less';
+@import 'colors.less';
+@import 'blocks.less';
+
+.inspiration {
+  background-image: @inspiration-background;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 600px;
+  width: 100%;
+  padding: 50px 0;
+
+  @media @small-screen {
+    padding: 24px;
+  }
+
+  .title {
+    color: @c_white;
+    line-height: 121px;
+
+    @media @medium-screen {
+      line-height: 50px;
+    }
+    @media @small-screen {
+      line-height: 30px;
+    }
+  }
+
+  .layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
+.inspiration-box-wrapper {
+  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 48px 0;
+  @media @medium-screen {
+    flex-direction: column;
+    margin: 0 0;
+  }
+
+  @media @small-screen {
+    padding: 0;
+  }
+}
+
+.inspiration-box {
+  background: fade(@c_grays_09, 60%);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 24px;
+  padding: 40px;
+  min-width: 300px;
+  text-align: center;
+
+  @media @small-screen {
+    margin: 12px;
+    padding: 12px;
+  }
+}
+
+.inspiration-box-button-wrapper {
+  align-self: flex-end;
+  margin-top: auto;
+
+  .white-button {
+    text-transform: uppercase;
+  }
+}
+
+.inspiration-box-title {
+  color: @c_white;
+  font-weight: 700;
+  margin: 0;
+  padding-top: 10px;
+  text-transform: uppercase;
+}
+
+.inspiration-box-text {
+  color: @c_white;
+  font-weight: 100;
+  margin-top: 14px;
+  letter-spacing: 0.5px;
+}
+
+.inspiracion-representacion{
+  width: 100%;
+  height: 200px;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  margin: 10px 0 20px 0;
+  border: 1px solid @c_grays_01;
+    &.naturaleza { background-image: url("../../assets/images/Inspiracion_naturaleza.jpg");}
+    &.vecinos { background-image: url("../../assets/images/Inspiracion_vecindario.jpg");}
+    &.techo { background-image: url("../../assets/images/Inspiracion_techo.jpg");}
+    &.luz { background-image: url("../../assets/images/Inspiracion_luz.jpg");}
+    &.oscuros { background-image: url("../../assets/images/Inspiracion_oscuro.jpg");}
+    &.interior { background-image: url("../../assets/images/Inspiracion_interiorcasa.jpg");}
+    &.cantidad { background-image: url("../../assets/images/Inspiracion_cantidaddecolores.jpg");}
+    &.familias { background-image: url("../../assets/images/Inspiracion_familiadecolores.jpg");}
+
+}
+.inspiration-modal-subtitle {
+  margin: 24px 24px 12px 24px;
+  color: @c_grays_06;
+}
+
+.inspiration-modal-content-subtitle {
+  font-weight: 600;
+}

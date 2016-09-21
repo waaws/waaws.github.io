@@ -1,0 +1,65 @@
+@import 'images.less';
+@import 'colors.less';
+@import 'blocks.less';
+
+.advice {
+  background-image: @advice-background;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 600px;
+  //height: 890px;
+  height: 100%;
+  padding: 50px 0;
+  width: 100%;
+
+  @media @small-screen {
+    height: 620px;
+    padding: 24px 0;
+  }
+
+}
+
+.advice-buttons-wrapper {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 40px;
+
+  @media @small-screen {
+    margin: 12px;
+  }
+}
+
+.advice-modal-content-text {
+  margin: 0;
+}
+
+.advice-modal-list {
+  padding-left: 20px;
+
+  li {
+    display: block;
+  }
+}
+
+.modal-content-subtitle {color: @c_grays_05;
+margin-top: 10px;
+margin-bottom: 0;}
+
+.advice-modal-application-order-list {
+  padding-left: 20px;
+
+  li {
+    display: block;
+  }
+}
+
+.modal-content-tools-list {
+  padding-left: 20px;
+
+  li {
+    display: block;
+  }
+}

@@ -1,0 +1,293 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <base href="/cibel-web/" target="_blank">
+  <meta charset="utf-8">
+
+  <title>Pinturas Cibel</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link rel="stylesheet" href="assets/fonts/font-awesome/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="icon" type="image/ico" href="assets/images/favicon.ico">
+  <link rel="stylesheet" href="animate.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script type="text/javascript" src="dist/bundle.js"></script>
+  <style>
+    .wow:first-child {
+      visibility: hidden;
+    }
+  </style>
+
+
+  <!--
+  <link rel="stylesheet/less" type="text/css" href="styles/less/index.less" />
+  <script>less = { env: 'development'};</script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.6.1/less.min.js"></script>
+  <script>less.watch();</script>
+
+  <link rel="stylesheet" href="styles/css/index.css">
+  -->
+  <link rel="stylesheet" href="dist/bundle.css">
+  <link rel="stylesheet" href="assets/fonts/icons/style.css">
+</head>
+
+<body ng-app="cibelApp" ng-controller="globalController" ng-cloak>
+  <div class="modal-wrapper initiallyHidden">
+    <div class="modal-backdrop" ng-click="closeModal();"></div>
+
+    <div class="modal-window-container"></div>
+  </div>
+
+  <header class="header" ng-controller="headerController">
+    <div class="header-wrapper">
+      <div class="navbar">
+        <a href="/" class="header-logo"></a>
+
+        <nav class="main-nav">
+          <div class="mobile-main-nav" uib-dropdown on-toggle="toggled(open)">
+              <a href uib-dropdown-toggle class="nav-menu-button" id="mobile-nav-dropdown">
+                <i class="icon-menu"></i>
+              </a>
+
+              <ul class="mobile-dropdown-menu" uib-dropdown-menu aria-labelledby="mobile-nav-dropdown">
+                <li class="menu-item">
+                  <a ui-sref="index.products" class="nav-button">
+                    <span>productos</span>
+                  </a>
+                  <ul class="mobile-dropdown-submenu">
+                    <li class="submenu-item" ng-repeat="category in categories">
+                      <a ui-sref="products({category: category.id})">{{ category.name }}</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="menu-item">
+                  <a ui-sref="index.advice" class="nav-button">
+                    <span>consejos</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a ui-sref="index.inspiration" class="nav-button">
+                    <span>inspiracion</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a ui-sref="index.company" class="nav-button">
+                    <span>empresa</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a ng-click="modalContact(1);" class="nav-button">
+                    <span>contacto</span>
+                  </a>
+                </li>
+              </ul>
+          </div>
+
+          <div class="desktop-main-nav">
+            <ul class="main-nav-menu">
+              <li class="menu-item dropdown">
+
+                <div uib-dropdown on-toggle="toggled(open)">
+                  <a ui-sref="index.products" class="nav-button" id="desktop-nav-dropdown">
+                    <i class="icon-productos"></i>
+                    <span>productos</span>
+                    <i class="icon-arrow-down"></i>
+                  </a>
+                  <ul class="desktop-dropdown-menu" uib-dropdown-menu aria-labelledby="desktop-nav-dropdown">
+                    <li ng-repeat="category in categories">
+                      <a ui-sref="products({category: category.id})">{{ category.name }}</a>
+                    </li>
+                  </ul>
+                </div>
+
+              </li>
+              <li class="menu-item">
+                <a ui-sref="index.advice" class="nav-button">
+                  <i class="icon-consejo"></i>
+                  <span>consejos</span>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a ui-sref="index.inspiration" class="nav-button">
+                  <i class="icon-inspiracion"></i>
+                  <span>inspiracion</span>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a ui-sref="index.company" class="nav-button">
+                  <span>empresa</span>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a ng-click="modalContact(1);" class="nav-button">
+                  <span>contacto</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+
+  <div class="home-wrapper" ng-controller="homeController">
+    <section id="main" class="main">
+      <div class="main-section-wrapper" ui-view></div>
+    </section>
+
+    <section id="home" class="home">
+      <div class="layout">
+        <div class="wow fadeIn pots-image"></div>
+        <div class="liter-calculator">
+          <a ui-sref="literCalculator" class="liter-calculator-button wow fadeInDown">
+            <i class="icon-calculadora"></i>
+            <span class="liter-calculator-label">calculador de litros</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="products">
+      <div class="layout">
+        <h3 class="title">productos</h3>
+
+        <div class="products-buttons-wrapper">
+          <div ng-repeat="category in categories" ui-sref="products({category: category.id})" class="product-category-button" ng-class="category.id">
+            <div class="wow fadeIn product-category-button-background"></div>
+            <div class="wow fadeInLeft product-category-label-wrapper">
+              <p class="product-category-label-title">{{category.name}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="advice" class="advice">
+      <div class="layout">
+        <div class="titlewithline">
+            <div class="line"></div>
+            <h1 class="title">consejos</h1>
+            <div class="line"></div>
+        </div>
+        <div class="advice-buttons-wrapper">
+          <button ng-click="openAdviceModal(1);" class="white-button wow fadeInDown"><i class="icon-paint-1" aria-hidden="true"></i> Antes de empezar</button>
+          <button ng-click="openAdviceModal(2);" class="white-button wow fadeInDown" data-wow-delay="0.2s"><i class="icon-painting" aria-hidden="true"></i> Reglas</button>
+          <button ng-click="openAdviceModal(3);" class="white-button wow fadeInDown" data-wow-delay="0.4s"><i class="icon-uso"></i> Preparación de superficies sin pintar</button>
+          <button ng-click="openAdviceModal(4);" class="white-button wow fadeInDown" data-wow-delay="0.6s"><i class="icon-rendimiento"></i> Mantenimiento</button>
+          <button ng-click="openAdviceModal(5);" class="white-button wow fadeInDown" data-wow-delay="0.8s"><i class="fa fa-exclamation" aria-hidden="true"></i> Problemas comunes de la pintura</button>
+          <button ng-click="openAdviceModal(6);" class="white-button wow fadeInDown" data-wow-delay="1s"><i class="icon-entonadores" aria-hidden="true"></i> Aplicación</button>
+          <button ng-click="openAdviceModal(7);" class="white-button wow fadeInDown" data-wow-delay="1.2s"><i class="icon-resistencia " aria-hidden="true"></i> Herramientas</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="inspiration" class="inspiration">
+      <div class="layout">
+        <div class="titlewithline">
+            <div class="line"></div>
+            <h1 class="title">inspiración</h1>
+            <div class="line"></div>
+        </div>
+
+        <div class="inspiration-box-wrapper">
+          <div class="inspiration-box wow fadeInLeft">
+            <h4 class="inspiration-box-title">¿Cómo elegir los colores para tu casa?</h4>
+            <p class="inspiration-box-text">
+              Los colores reflejan tu personalidad, tu estado de ánimo, tus sentimientos... La elección incorrecta del color hará que tu casa pierda calidez y que no se destaquen sus rasgos distintivos. Sin embargo, si elegís correctamente los colores, podrás destacar tu casa, distinguir su arquitectura e incluso ocultar los defectos estructurales que puedan llegar  existir. Así, impulsaras el atractivo de tu inmueble y por consiguiente el valor de mercado.
+            </p>
+            <div class="inspiration-box-button-wrapper">
+              <a ng-click="openInspirationModal(1);" class="white-button wow fadeInLeft">sugerencias</a>
+            </div>
+          </div>
+
+          <div class="inspiration-box wow fadeInRight">
+            <h4 class="inspiration-box-title">¿Cómo nos afectan los colores?</h4>
+            <p class="inspiration-box-text">
+              El color no solo es la impresión  que nuestros ojos perciben por la luz, en otras palabras lo que miramos, sino que además influye en lo que sentimos. Así,  a partir de la Psicología del Color y la Cromoterapia, se ha buscado identificar los efectos de los colores sobre nosotros.
+            </p>
+            <div class="inspiration-box-button-wrapper">
+              <a ng-click="openInspirationModal(2);" class="white-button wow fadeInRight">descubramos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="company" class="company">
+      <div class="layout">
+        <div class="company-box-wrapper">
+          <div class="company-box wow fadeInLeft">
+            <h3 class="title">empresa</h3>
+            <div class="company-box-text-wrapper">
+              <p class="company-box-text">
+                Compañía Industrial de Barnices, Esmaltes y Lacas.
+              </p>
+              <p class="company-box-text">
+                Haciendo uso de los conocimientos y experiencias adquiridas, desarrollo una línea completa de productos para atender al mercado. Asimismo incorporó un sistema tintométrico, instalando varias maquinas en diversos comercios. De esta manera, quedo conformada una de las más completas líneas de pinturas para Hogar y Obra disponible en el mercado argentino.
+                La línea de pinturas Cibel se vende en pinturerías, ferreterías, corralones y mayoristas.
+              </p>
+            </div>
+            <a ui-sref="history" class="text-button wow fadeInLeft">historia</a>
+          </div>
+
+          <div class="company-box wow fadeInRight">
+            <h3 class="title">responsabilidad social</h3>
+            <div class="company-box-text-wrapper">
+              <p class="company-box-text">
+                Al servicio de un mundo mejor.
+              </p>
+              <p class="company-box-text">
+                Desde 1947 Cibel S.R.L. se compromete a contribuir en la existencia de una sociedad más justa y en defensa de un medio ambiente sano.
+              </p>
+              <p class="company-box-text">
+                Nuestra actividad como compañia química presenta un gran impacto en el desarrollo social de nuestro país, y específicamente en la comunidad en la que desarrollamos nuestra actividad.
+              </p>
+            </div>
+            <a ui-sref="social" class="text-button wow fadeInRight">un mundo mejor</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="foot">
+    </section>
+
+    <footer id="contact" class="footer">
+      <div class="footer-content">
+        <div class="footer-logo"></div>
+
+        <div class="footer-contact-info">
+          <h3 class="footer-title">contacto</h3>
+          <p class="footer-text">Calle Talcahuano 359,</p>
+          <p class="footer-text">Ciudad Madero, Buenos Aires</p>
+          <p class="footer-text">Teléfono: 4442-9970</p>
+          <p class="footer-text">consultas@pinturascibel.com.ar</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="wow.min.js"></script>
+  <script>
+    wow = new WOW(
+      {
+        animateClass: 'animated',
+        offset:       100,
+        callback:     function(box) {
+          console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
+        }
+      }
+    );
+    wow.init();
+    document.getElementById('moar').onclick = function() {
+      var section = document.createElement('section');
+      section.className = 'section--purple wow fadeInDown';
+      this.parentNode.insertBefore(section, this);
+    };
+  </script>
+  <script type="text/javascript" src="//waaws-api.herokuapp.com/cibel/browser/ng-wapi.js"></script>
+</body>
+</html>

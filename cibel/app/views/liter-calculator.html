@@ -1,0 +1,77 @@
+<div class="liter-calculator-section-content" ng-controller="literCalculatorController">
+  <div class="main-section-header">
+    <div class="layout">
+      <div class="liter-calculator-header-logo"></div>
+      <h2 class="liter-calculator-header-title">Calculá los litros que vas a utilizar</h2>
+      <div class="liter-calculator-header-pots-image"></div>
+    </div>
+  </div>
+
+  <div class="main-section-content">
+    <div class="layout">
+      <form class="liter-calculator-form">
+        <div class="liter-calculator-form-header-wrapper">
+          <p class="liter-calculator-text">Seleccione los datos para realizar el cálculo:</p>
+        </div>
+
+        <div class="liter-calculator-form-input-wrapper">
+          <select ng-options="surface as surface.name for surface in surfaces" class="liter-calculator-input" ng-model="surface">
+            <option value="" disabled>Superficie</option>
+          </select>
+          <select ng-options="product as product.fields.nombre for product in products | filter: filterProduct" class="liter-calculator-input" ng-model="product" ng-disabled="!surface">
+            <option value="" disabled>Producto</option>
+          </select>
+        </div>
+
+        <p class="liter-calculator-text">A continuación, elija de qué manera desea realizar el cálculo:</p>
+
+        <div class="liter-calculator-form-input-wrapper">
+          <div class="liter-calculator-input">
+            <div class="radio-button-input-wrapper">
+              <input type="radio" ng-model="parameterType" value="squareMeter"/>
+              Metros cuadrados (m2)
+            </div>
+            <div class="liter-calculator-input-wrapper">
+              <input type="number" ng-model="squareMeter" placeholder="Metros cuadrados (m2)" class="text-input"/>
+            </div>
+          </div>
+          <div class="liter-calculator-input">
+            <div class="radio-button-input-wrapper">
+              <input type="radio" ng-model="parameterType" value="manual"/>
+              Ancho y largo
+            </div>
+            <div class="liter-calculator-input-wrapper">
+              <input type="number" ng-model="width" placeholder="Ancho" class="text-input"/>
+              <input type="number" ng-model="large" placeholder="Largo" class="text-input"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="liter-calculator-button-wrapper">
+          <button type="submit" class="calculate-button" ng-click="calculate()" ng-disabled="disableCalculateButton()">calcular</button>
+        </div>
+      </form>
+
+      <div class="liter-calculator-result initiallyHidden">
+        <div class="liter-calculator-form-header-wrapper">
+          <p class="liter-calculator-text">Resultados</p>
+        </div>
+
+        <div class="liter-calculator-result-content">
+          <div class="liter-calculator-text">
+            <span>Usted necesita</span>
+            <span class="liter-calculator-result-number">{{ result | roundUp }}</span>
+            <span>{{ paintTypes[product.fields.tipo].meassureUnit }} de pintura para dar {{ paintTypes[product.fields.tipo].coats }} manos.</span>
+          </div>
+        </div>
+
+        <div class="liter-calculator-button-wrapper">
+          <button class="back-button" ng-click="back()">
+            <i class="icon-arrow-back"></i>
+            volver
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

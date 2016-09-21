@@ -1,0 +1,31 @@
+<div class="product-section-content">
+  <div class="main-section-header">
+    <div class="layout">
+      <div class="product-section-header-wrapper">
+        <h2 class="product-section-header-title">{{ category | categoryTitle }}</h2>
+        <div class="product-section-header-logo"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-section-content">
+    <div class="layout">
+      <div class="product-index-section-content">
+        <h4 class="product-index-section-content-title">Encontrá todo lo que necesitas</h4>
+
+        <div class="product-list-wrapper">
+          <div class="loader" ng-hide="productsLoaded"></div>
+
+          <div class="product-list" ng-show="productsLoaded">
+            <div class="product-list-item" ui-sref="product({category: category, productId: product.fields.id})" ng-repeat="product in products | filter: filterProduct">
+              <div class="product-list-item-image-wrapper">
+                <img class="product-list-item-image" ng-src="{{ product.fields.imagen.fields.file.url }}" alt="{{ product.fields.imagen.fields.title }}">
+              </div>
+              <p class="product-list-item-name">{{ product.fields.nombre }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

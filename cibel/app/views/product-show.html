@@ -1,0 +1,159 @@
+<div class="product-section-content">
+  <div class="main-section-header">
+    <div class="layout">
+      <div class="product-section-header-wrapper">
+        <h2 class="product-section-header-title">{{ category | categoryTitle }}</h2>
+        <div class="product-section-header-logo"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-section-content">
+    <div class="loader" ng-hide="productLoaded"></div>
+
+    <div class="product-info-wrapper" ng-show="productLoaded">
+      <div class="product-info-header-wrapper">
+        <div class="layout">
+          <div class="product-info-header">
+            <div class="product-image-wrapper">
+              <div class="product-image">
+                <img ng-src="{{ product.imagen.fields.file.url }}" alt="{{ product.imagen.fields.title }}">
+              </div>
+            </div>
+            <div class="product-info-header-text">
+              <h4 class="product-name">{{ product.nombre }}</h4>
+              <div marked="product.descripcion" class="product-description"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-technical-info-section">
+        <div class="layout">
+          <div class="product-technical-info-title-wrapper">
+            <p class="product-technical-info-title">Información Técnica</p>
+          </div>
+
+          <div class="product-technical-info">
+            <div class="product-technical-info-fields-wrapper">
+              <div class="product-technical-info-field-wrapper">
+                <span class="product-technical-info-field-icon icon-uso"></span>
+                <div class="product-technical-info-field">
+                  <p class="product-technical-info-field-key">Uso</p>
+                  <p class="product-technical-info-field-value">{{ formatList(product.uso) || '-'  }}</p>
+                </div>
+              </div>
+
+              <div class="product-technical-info-field-wrapper">
+                <span class="product-technical-info-field-icon icon-entonadores"></span>
+                <div class="product-technical-info-field">
+                  <p class="product-technical-info-field-key">Entonadores</p>
+                  <p class="product-technical-info-field-value">{{ product.entonadores || '-'  }}</p>
+                </div>
+              </div>
+
+              <div class="product-technical-info-field-wrapper">
+                <span class="product-technical-info-field-icon icon-rendimiento"></span>
+                <div class="product-technical-info-field">
+                  <p class="product-technical-info-field-key">Rendimiento</p>
+                  <p class="product-technical-info-field-value">{{ product.rendimiento || '-'  }}</p>
+                </div>
+              </div>
+              <div class="product-technical-info-field-wrapper">
+                <span class="product-technical-info-field-icon icon-paint-2"></span>
+                <div class="product-technical-info-field">
+                  <p class="product-technical-info-field-key">Colores disponibles</p>
+                  <p class="product-technical-info-field-value">{{ formatList(product.colores) || '-'  }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-technical-info-fields-wrapper">
+              <div class="product-technical-info-field-wrapper">
+                <span class="product-technical-info-field-icon icon-resistencia"></span>
+                <div class="product-technical-info-field">
+                  <p class="product-technical-info-field-key">Resistencia al frote</p>
+                  <p class="product-technical-info-field-value">{{ formatList(product.resistencia) || '-'  }}</p>
+                </div>
+              </div>
+
+              <div class="product-technical-info-field-wrapper">
+                <span class="product-technical-info-field-icon icon-secado"></span>
+                <div class="product-technical-info-field">
+                  <p class="product-technical-info-field-key">Secado</p>
+                  <p class="product-technical-info-field-value">{{ product.secado || '-' }}</p>
+                </div>
+              </div>
+
+              <div class="product-technical-info-field-wrapper">
+                <span class="product-technical-info-field-icon icon-presentacion"></span>
+                <div class="product-technical-info-field">
+                  <p class="product-technical-info-field-key">Presentacion</p>
+                  <p class="product-technical-info-field-value">{{ product.presentacion || '-'  }}</p>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-extra-info-section">
+        <div class="layout">
+          <div class="product-extra-info-items-wrapper">
+            <div class="product-extra-info-item" ng-if="product.componerColores">
+              <div class="product-extra-info-header compose"></div>
+              <div class="product-extra-info">
+                <p class="product-extra-info-key">Componer colores</p>
+                <div marked="product.componerColores" class="product-extra-info-value"></div>
+              </div>
+            </div>
+
+            <div class="product-extra-info-item" ng-if="product.preparacionDeLaSuperficie">
+              <div class="product-extra-info-header surface"></div>
+              <div class="product-extra-info">
+                <p class="product-extra-info-key">Preparación de la superficie</p>
+                <div marked="product.preparacionDeLaSuperficie" class="product-extra-info-value"></div>
+              </div>
+            </div>
+
+            <div class="product-extra-info-item" ng-if="product.aplicacionDelProducto">
+              <div class="product-extra-info-header application"></div>
+              <div class="product-extra-info">
+                <p class="product-extra-info-key">Aplicación del producto</p>
+                <div marked="product.aplicacionDelProducto" class="product-extra-info-value"></div>
+              </div>
+            </div>
+
+            <div class="product-extra-info-item" ng-show="showButtons()">
+              <div class="liter-calculator-button-wrapper">
+                <a ui-sref="literCalculator" class="liter-calculator-button">
+                  <i class="icon-calculadora"></i>
+                  <span class="liter-calculator-label">calculador de litros</span>
+                </a>
+              </div>
+              <div class="liter-calculator-button-wrapper">
+                <a ng-click="openAdviceModal(1);" class="liter-calculator-button">
+                  <i class="icon-consejo"></i>
+                  <span class="liter-calculator-label">consejos</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-photos-section" ng-show="showPhotosSection()">
+        <div class="layout">
+          <div class="product-photos-wrapper">
+            <div ng-repeat="photo in product.fotos" class="product-photo">
+              <img class="product-photo-image" ng-src="{{ photo.fields.file.url }}" alt="{{ photo.fields.title }}">
+              <p class="text">{{photo.fields.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

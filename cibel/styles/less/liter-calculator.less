@@ -1,0 +1,144 @@
+@import 'colors.less';
+@import 'images.less';
+
+.liter-calculator-section-content {
+  width: 100%;
+}
+
+.liter-calculator-header-logo {
+  background-image: @logo;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  flex-shrink: 0;
+  height: 90px;
+  width: 150px;
+
+  @media @small-screen {
+    display: none;
+  }
+}
+
+.liter-calculator-header-title {
+  color: @c_white;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 64px;
+  margin-left: 24px;
+  margin-right: auto;
+
+  @media @small-screen {
+    font-size: 24px;
+    line-height: 24px;
+    margin-left: 0;
+  }
+}
+
+.liter-calculator-header-pots-image {
+  background-image: @home-pots;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 240px;
+  margin-top: 24px;
+  width: 270px;
+
+  @media @small-screen {
+    display: none;
+  }
+}
+
+.liter-calculator-form {
+  padding: 48px 0;
+  color: @c_grays_04;
+
+  @media @small-screen {
+    padding: 0;
+  }
+}
+
+.liter-calculator-form-header-wrapper {
+  border-bottom: 1px solid @c_grays_03;
+}
+
+.liter-calculator-text {
+  color: @c_grays_04;
+  font-weight: 700;
+  margin: 16px;
+
+  @media @small-screen {
+    margin: 12px 0;
+  }
+}
+
+.liter-calculator-form-input-wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  @media @small-screen {
+    flex-direction: column;
+  }
+}
+
+.liter-calculator-input {
+  flex: 1;
+  margin: 16px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+
+  @media @small-screen {
+    margin: 6px;
+  }
+}
+
+.liter-calculator-input-wrapper {
+  display: flex;
+
+  @media @small-screen {
+    flex-direction: column;
+    margin: 0;
+  }
+}
+
+.radio-button-input-wrapper {
+  font-weight: 700;
+  margin: 6px;
+}
+
+.text-input {
+  flex: 1;
+  margin: 6px;
+}
+
+.liter-calculator-button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin: 12px 0;
+  width: 100%;
+
+  @media @small-screen {
+    justify-content: center;
+  }
+}
+
+.liter-calculator-result {
+  padding: 48px 0;
+
+  @media @small-screen {
+    padding: 24px 0;
+  }
+}
+
+.liter-calculator-result-content {
+  padding: 24px 0;
+
+  @media @small-screen {
+    padding: 12px 6px;
+  }
+}
+
+.liter-calculator-result-number {
+  font-size: 48px;
+  padding: 0 6px;
+}

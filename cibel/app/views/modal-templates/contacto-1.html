@@ -1,0 +1,39 @@
+<div class="contact-modal-content">
+  <style>
+  .icon-arrow-left, .icon-arrow-right {display: none;}
+  </style>
+  <h3 class="modal-content-title">Escribinos tu consulta</h3>
+
+  <div class="contact-modal-content-section wapi-form-wrapper" data-form-name="contact">
+    <form w-form="contact" ng-submit="submit()">
+      <div class="group">
+        <input type="text" ng-model="data.email" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Tu email</label>
+      </div>
+      <div class="group">
+        <input type="text" ng-model="data.message" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Escribe un mensaje corto</label>
+      </div>
+          <button class="liter-calculator-button">Enviar tu consulta</button>
+
+          <div ng-show="submitted">
+              Gracias por tu consulta. Nos comunicaremos con vos lo antes posible.
+          </div>
+          <div ng-show="fail">
+              Algo salió mal. Por favor vuelve a intentarlo.
+          </div>
+
+      </form>
+
+
+
+
+
+
+  </div>
+  <div class="imagen-contacto"></div>
+</div>

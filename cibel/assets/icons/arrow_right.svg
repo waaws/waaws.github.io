@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="12px" height="23px" viewBox="0 0 12 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow_right</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Original" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="05-INSPIRACION-COMO_ELEGIR" transform="translate(-1254.000000, -1839.000000)" fill="#808080">
+            <g id="Front" transform="translate(0.000000, -2.000000)">
+                <g id="Header" transform="translate(150.000000, 1823.000000)">
+                    <path d="M1105.55503,29.2168036 L1115.81083,19.0848905 C1116.06306,18.8357065 1116.06306,18.4360719 1115.81083,18.186888 C1115.5586,17.937704 1115.15407,17.937704 1114.90184,18.186888 L1104.18917,28.7701531 C1103.93694,29.0193371 1103.93694,29.4189717 1104.18917,29.6681557 L1114.90184,40.2467193 C1115.02558,40.3689604 1115.19215,40.4347826 1115.35396,40.4347826 C1115.51576,40.4347826 1115.68233,40.373662 1115.80607,40.2467193 C1116.0583,39.9975353 1116.0583,39.5979007 1115.80607,39.3487167 L1105.55503,29.2168036 L1105.55503,29.2168036 Z" id="arrow_right" transform="translate(1110.000000, 29.217391) rotate(-180.000000) translate(-1110.000000, -29.217391) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

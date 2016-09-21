@@ -1,0 +1,124 @@
+@import 'blocks.less';
+@import 'images.less';
+
+.social-section-content {
+  width: 100%;
+}
+
+.social-section-header-title {
+  color: @c_white;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 64px;
+  margin-left: 24px;
+  margin-right: auto;
+
+  @media @small-screen {
+    font-size: 24px;
+    line-height: 24px;
+    margin-left: 12px;
+  }
+}
+
+.social-section-header-pots-image {
+  background-image: @home-pots;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 220px;
+  margin-top: 48px;
+  width: 260px;
+
+  @media @small-screen {
+    display: none;
+  }
+}
+
+.social-section-content-subtitle-wrapper {
+  border-bottom: 1px solid @c_grays_04;
+  display: flex;
+}
+
+.social-section-content-subtitle {
+  align-self: flex-end;
+  color: @c_grays_04;
+  flex-grow: 1;
+  font-weight: 600;
+  margin: 0;
+  padding: 12px;
+  text-transform: uppercase;
+}
+
+.social-section-content-logo {
+  background-image: @logo;
+  background-size: contain;
+  background-repeat: no-repeat;
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 80px;
+  width: 120px;
+
+  @media @small-screen {
+    height: 60px;
+    margin: 12px;
+    width: 100px;
+  }
+}
+
+.social-section-content-text {
+  color: @c_grays_04;
+  margin: 24px 0;
+}
+
+.social-section-content-text-subtitle {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 12px 0;
+  text-decoration: underline;
+}
+
+.social-section-content-subsection-text {
+  padding-left: 48px;
+
+  @media @small-screen {
+    padding-left: 24px;
+  }
+}
+
+.social-section-content-list {
+  padding-left: 48px;
+  margin: 12px 0;
+
+  @media @small-screen {
+    padding-left: 24px;
+  }
+
+  li {
+    display: block;
+  }
+}
+
+.social-section-content-susbsection-legend {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 48px 0px;
+  text-align: right;
+  text-transform: uppercase;
+
+  @media @small-screen {
+    margin: 24px 0;
+  }
+}
+
+.social-section-content-subsection-subtitle {
+  font-size: 16px;
+  padding-left: 48px;
+  margin: 12px 0;
+  text-transform: uppercase;
+
+  @media @small-screen {
+    padding-left: 24px;
+  }
+}
